@@ -34,8 +34,8 @@ Todo list
                 <td>{{todo.deadline}}</td>
                 <td>{{todo.finished_at|default:"-"}}</td>
                 <td>
-                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{% url 'todo_update' pk=todo.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'todo_delete' pk=todo.pk %}" class="btn btn-sm btn-danger">Delete</a>
                     <a href="" class="btn btn-sm btn-success">Finish</a>
               </tr>
               {% endfor %}
