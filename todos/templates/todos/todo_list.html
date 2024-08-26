@@ -24,9 +24,7 @@ Todo list
               </tr>
             </thead>
             <tbody>
-                
                 {% for todo in todo_list  %}
-                    
               <tr>
                 <th scope="row">{{todo.id}}</th>
                 <td>{{todo.title}}</td>
@@ -34,9 +32,11 @@ Todo list
                 <td>{{todo.deadline}}</td>
                 <td>{{todo.finished_at|default:"-"}}</td>
                 <td>
-                    <a href="{% url 'todo_update' pk=todo.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="{% url 'todo_complete' pk=todo.pk %}" class="btn btn-sm btn-success
+                   {% if todo.finished_at %} disabled {% endif %}">Finish</a>
+                    <a href="{% url 'todo_update' pk=todo.pk %}" class="btn btn-primary btn-sm 
+                    {% if todo.finished_at %} disabled {% endif %}">Edit</a>
                     <a href="{% url 'todo_delete' pk=todo.pk %}" class="btn btn-sm btn-danger">Delete</a>
-                    <a href="" class="btn btn-sm btn-success">Finish</a>
               </tr>
               {% endfor %}
               
